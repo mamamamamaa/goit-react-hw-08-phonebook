@@ -11,12 +11,12 @@ const STORAGE_DATA = 'contacts';
 export const App = () => {
   const [contacts, setContacts] = useState([]);
 
-  useEffect(() => {
-    const storageData = JSON.parse(localStorage.getItem(STORAGE_DATA));
-    if (storageData.length > 0) {
-      setContacts(storageData);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storageData = JSON.parse(localStorage.getItem(STORAGE_DATA));
+  //   if (storageData.length > 0) {
+  //     setContacts(storageData);
+  //   }
+  // }, []);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_DATA, JSON.stringify(contacts));
