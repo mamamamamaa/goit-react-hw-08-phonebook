@@ -1,16 +1,32 @@
 import { Formik } from 'formik';
 import { FormStyles, Label, SubmitBtn } from './Form.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../redux/actions';
+import { getContacts } from '../../redux/selectors';
 
-import PropTypes from 'prop-types';
+const checkContacts = (contacts, newUser) => {
+  const normalizedName = newUser.toLowerCase();
+  return !contacts.find(user => user.name.toLowerCase() === normalizedName);
+};
+
+const STORAGE_DATA = 'contacts';
 
 export const Form = () => {
-  const handleSubmit = ({ name, number }, action) => {
-    console.log(name);
-    console.log(number);
+  const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
+
+  const nameSubmit = ({ name, number }, action) => {
+    if (!checkContacts(contacts, name)) {
+      alert(`${name} is already is contacts`);
+      action.resetForm();
+      return;
+    }
+    dispatch(addContact(name, number));
+    localStorage.setItem(STORAGE_DATA, JSON.stringify(contacts));
     action.resetForm();
   };
   return (
-    <Formik initialValues={{ name: '', number: '' }} onSubmit={handleSubmit}>
+    <Formik initialValues={{ name: '', number: '' }} onSubmit={nameSubmit}>
       {({ values, handleChange }) => (
         <FormStyles>
           <Label>
@@ -27,7 +43,7 @@ export const Form = () => {
           </Label>
           <br />
           <Label>
-            Nubmer
+            Number
             <input
               type="tel"
               name="number"

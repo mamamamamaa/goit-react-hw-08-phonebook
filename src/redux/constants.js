@@ -1,6 +1,6 @@
 export const actionTypes = Object.freeze({
   addStorageContacts: 'contacts/addStorageContacts',
-  addContacts: 'contacts/addContact',
-  deleteContacts: 'contacts/deleteContacts',
+  addContact: 'contacts/addContact',
+  deleteContact: 'contacts/deleteContact',
   setFilter: 'filter/setFilter',
 });

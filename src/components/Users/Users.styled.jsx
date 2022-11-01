@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { FormStyles } from 'components/Form/Form.styled';
+import { renderToPipeableStream } from 'react-dom/server';
 
 export const FindUser = FormStyles.withComponent('div');
 

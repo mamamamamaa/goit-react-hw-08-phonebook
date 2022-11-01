@@ -1,50 +1,29 @@
 import { actionTypes } from './constants';
 import { combineReducers } from 'redux';
 
-const initialState = {
-  contacts: [
-    { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-    { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-    { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-    { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-  ],
-  filter: '',
-};
+const initialContactsState = [];
+const initialFilterState = '';
 
-const contactsReducer = (state = initialState, action) => {
+const contactsReducer = (state = initialContactsState, action) => {
   switch (action.type) {
     case actionTypes.addStorageContacts: {
-      return {
-        ...state,
-        contacts: action.payload.contacts,
-      };
+      return [...action.payload.contacts];
     }
-    case actionTypes.addContacts: {
-      return {
-        ...state,
-        contacts: [...action.payload.contacts],
-      };
+    case actionTypes.addContact: {
+      return [...state, action.payload];
     }
-    case actionTypes.deleteContacts: {
-      return {
-        ...state,
-        contacts: state.contacts.filter(
-          ({ name }) => name !== action.payload.name
-        ),
-      };
+    case actionTypes.deleteContact: {
+      return state.filter(({ name }) => name !== action.payload.name);
     }
     default: {
       return state;
     }
   }
 };
-const filterReducer = (state = initialState, action) => {
+const filterReducer = (state = initialFilterState, action) => {
   switch (action.type) {
     case actionTypes.setFilter: {
-      return {
-        ...state,
-        filter: action.payload.filter,
-      };
+      return action.payload.filter;
     }
     default: {
       return state;

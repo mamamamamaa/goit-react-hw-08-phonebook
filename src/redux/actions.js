@@ -11,7 +11,7 @@ export const addStorageContacts = contacts => {
 
 export const addContact = (name, number) => {
   return {
-    type: 'contact/addContact',
+    type: 'contacts/addContact',
     payload: {
       id: nanoid(),
       name,
