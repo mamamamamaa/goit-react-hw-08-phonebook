@@ -3,7 +3,12 @@ import { FormStyles, Label, SubmitBtn } from './Form.styled';
 
 import PropTypes from 'prop-types';
 
-export const Form = ({ handleSubmit }) => {
+export const Form = () => {
+  const handleSubmit = ({ name, number }, action) => {
+    console.log(name);
+    console.log(number);
+    action.resetForm();
+  };
   return (
     <Formik initialValues={{ name: '', number: '' }} onSubmit={handleSubmit}>
       {({ values, handleChange }) => (
@@ -39,8 +44,4 @@ export const Form = ({ handleSubmit }) => {
       )}
     </Formik>
   );
-};
-
-Form.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
 };
