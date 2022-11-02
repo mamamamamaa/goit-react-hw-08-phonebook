@@ -1,29 +1,17 @@
 import { Label } from 'components/Form/Form.styled';
 import { FindUser, DeleteBtn, User } from './Users.styled';
-import {
-  addStorageContacts,
-  deleteContact,
-  setFilter,
-} from '../../redux/actions';
+import { deleteContact } from '../../redux/contactsSlice';
+import { setFilter } from '../../redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
-const STORAGE_DATA = 'contacts';
+import { getFilter, getContacts } from '../../redux/selectors';
 
 export const Users = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
-  const filter = useSelector(state => state.filter);
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
   const handleFilterChange = e => {
     dispatch(setFilter(e.target.value));
   };
-
-  useEffect(() => {
-    const data = localStorage.getItem(STORAGE_DATA);
-    if (data) {
-      dispatch(addStorageContacts(JSON.parse(data)));
-    }
-  }, []);
 
   const normalisedFilter = filter.toLowerCase();
   const filteredList = contacts.filter(({ name }) =>

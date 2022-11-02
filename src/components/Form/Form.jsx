@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import { FormStyles, Label, SubmitBtn } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/actions';
+import { addContact } from '../../redux/contactsSlice';
 import { getContacts } from '../../redux/selectors';
 
 const checkContacts = (contacts, newUser) => {
@@ -22,7 +22,7 @@ export const Form = () => {
       return;
     }
     dispatch(addContact(name, number));
-    localStorage.setItem(STORAGE_DATA, JSON.stringify(contacts));
+    // localStorage.setItem(STORAGE_DATA, JSON.stringify(contacts));
     action.resetForm();
   };
   return (
