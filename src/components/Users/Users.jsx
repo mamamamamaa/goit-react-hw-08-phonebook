@@ -42,10 +42,3 @@ export const Users = () => {
     </FindUser>
   );
 };
-
-// Users.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.objectOf(PropTypes.string.isRequired).isRequired
-//   ).isRequired,
-//   handleDelete: PropTypes.func.isRequired,
-// };

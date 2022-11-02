@@ -9,8 +9,6 @@ const checkContacts = (contacts, newUser) => {
   return !contacts.find(user => user.name.toLowerCase() === normalizedName);
 };
 
-const STORAGE_DATA = 'contacts';
-
 export const Form = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
@@ -22,7 +20,6 @@ export const Form = () => {
       return;
     }
     dispatch(addContact(name, number));
-    // localStorage.setItem(STORAGE_DATA, JSON.stringify(contacts));
     action.resetForm();
   };
   return (
