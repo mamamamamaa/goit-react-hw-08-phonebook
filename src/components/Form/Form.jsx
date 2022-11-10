@@ -2,19 +2,14 @@ import { Formik } from 'formik';
 import { FormStyles, Label, SubmitBtn } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contactsSlice';
-import { getContacts } from '../../redux/selectors';
-
-const checkContacts = (contacts, newUser) => {
-  const normalizedName = newUser.toLowerCase();
-  return !contacts.find(user => user.name.toLowerCase() === normalizedName);
-};
+import { selectIsContact } from '../../redux/selectors';
 
 export const Form = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const checkContacts = useSelector(selectIsContact);
 
   const nameSubmit = ({ name, number }, action) => {
-    if (!checkContacts(contacts, name)) {
+    if (!checkContacts(name)) {
       alert(`${name} is already is contacts`);
       action.resetForm();
       return;

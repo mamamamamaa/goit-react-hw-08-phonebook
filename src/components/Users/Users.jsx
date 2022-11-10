@@ -3,21 +3,14 @@ import { FindUser, DeleteBtn, User } from './Users.styled';
 import { deleteContact } from '../../redux/contactsSlice';
 import { setFilter } from '../../redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilter, getContacts } from '../../redux/selectors';
+import { selectFilteredContacts } from '../../redux/selectors';
 
 export const Users = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const contacts = useSelector(selectFilteredContacts);
   const handleFilterChange = e => {
     dispatch(setFilter(e.target.value));
   };
-
-  const normalisedFilter = filter.toLowerCase();
-  const filteredList = contacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalisedFilter)
-  );
-
   return (
     <FindUser>
       <Label>
@@ -26,7 +19,7 @@ export const Users = () => {
       </Label>
       <ul>
         {contacts.length !== 0
-          ? filteredList.map(({ id, name, number }) => (
+          ? contacts.map(({ id, name, number }) => (
               <User key={id}>
                 {name}: {number}
                 <DeleteBtn
