@@ -1,13 +1,19 @@
 import { Label } from 'components/Form/Form.styled';
 import { FindUser, DeleteBtn, User } from './Users.styled';
-import { deleteContact } from '../../redux/contactsSlice';
 import { setFilter } from '../../redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilteredContacts } from '../../redux/selectors';
+import {
+  selectError,
+  selectFilteredContacts,
+  selectIsLoading,
+} from '../../redux/selectors';
+import { deleteContact } from '../../redux/operations';
 
 export const Users = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectFilteredContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
   const handleFilterChange = e => {
     dispatch(setFilter(e.target.value));
   };
@@ -18,13 +24,15 @@ export const Users = () => {
         <input type="text" name="search" onChange={handleFilterChange} />
       </Label>
       <ul>
+        {isLoading && <h3>Loading....</h3>}
+        {error && <h3>{error}</h3>}
         {contacts.length !== 0
           ? contacts.map(({ id, name, number }) => (
               <User key={id}>
                 {name}: {number}
                 <DeleteBtn
                   type="button"
-                  onClick={() => dispatch(deleteContact(name))}
+                  onClick={() => dispatch(deleteContact(id))}
                 >
                   Delete
                 </DeleteBtn>
