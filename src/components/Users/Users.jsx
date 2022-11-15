@@ -1,13 +1,13 @@
-import { Label } from 'components/Form/Form.styled';
+import { Label } from 'components/ContactForm/Form.styled';
 import { FindUser, DeleteBtn, User } from './Users.styled';
-import { setFilter } from '../../redux/filterSlice';
+import { setFilter } from '../../redux/contacts/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectError,
   selectFilteredContacts,
   selectIsLoading,
-} from '../../redux/selectors';
-import { deleteContact } from '../../redux/operations';
+} from '../../redux/contacts/selectors';
+import { deleteContact } from '../../redux/contacts/operations';
 
 export const Users = () => {
   const dispatch = useDispatch();

@@ -1,10 +1,10 @@
 import { Formik } from 'formik';
 import { FormStyles, Label, SubmitBtn } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsContact } from '../../redux/selectors';
-import { addContact } from '../../redux/operations';
+import { selectIsContact } from '../../redux/contacts/selectors';
+import { addContact } from '../../redux/contacts/operations';
 
-export const Form = () => {
+export const ContactForm = () => {
   const dispatch = useDispatch();
   const checkContacts = useSelector(selectIsContact);
   const nameSubmit = ({ name, number }, action) => {

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { FormStyles } from 'components/Form/Form.styled';
+import { FormStyles } from 'components/ContactForm/Form.styled';
 
 export const FindUser = FormStyles.withComponent('div');
 
