@@ -1,7 +1,7 @@
 import { ContactForm } from '../components/ContactForm/ContactForm';
 import formStyle from '../components/FormStyles/FormStyles.module.scss';
 
-export const Form = () => {
+const Form = () => {
   return (
     <div className={formStyle.formContainer}>
       <h1 className="text-2xl pb-6">Add contact</h1>
@@ -9,3 +9,5 @@ export const Form = () => {
     </div>
   );
 };
+
+export default Form;

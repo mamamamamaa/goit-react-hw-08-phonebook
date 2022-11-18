@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from '../redux/contacts/operations';
 
-export const Contacts = () => {
+const Contacts = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchContacts());
@@ -15,3 +15,5 @@ export const Contacts = () => {
     </>
   );
 };
+
+export default Contacts;
