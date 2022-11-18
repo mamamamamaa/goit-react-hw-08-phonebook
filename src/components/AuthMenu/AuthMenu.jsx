@@ -1,10 +1,10 @@
-import { StyledLink } from '../AppBar/AppBar.styled';
+import { NavLink } from 'react-router-dom';
 
 export const AuthMenu = () => {
   return (
     <>
-      <StyledLink to="/register">Register</StyledLink>
-      <StyledLink to="/login">Log In</StyledLink>
+      <NavLink to="/register">Register</NavLink>
+      <NavLink to="/login">Log In</NavLink>
     </>
   );
 };

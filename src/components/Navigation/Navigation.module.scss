@@ -1,0 +1,16 @@
+.logoLink{
+  @apply font-syne text-2xl font-bold mr-16;
+}
+
+.activeLogoLink{
+  @apply font-syne text-2xl font-bold mr-16 pointer-events-none ;
+}
+
+.contactsLink{
+  @apply text-xl;
+}
+
+.activeContactsLink{
+  @apply text-xl border-b-4 border-indigo-500 pointer-events-none ;
+}
+

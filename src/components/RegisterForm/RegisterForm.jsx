@@ -1,16 +1,10 @@
-import { Formik } from 'formik';
-import {
-  FormStyles,
-  Label,
-  SubmitBtn,
-} from '../ContactForm/ContactForm.styled';
+import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const onSubmit = (data, action) => {
-    console.log(data);
     dispatch(register(data));
     action.resetForm();
   };
@@ -21,8 +15,8 @@ export const RegisterForm = () => {
       onSubmit={onSubmit}
     >
       {({ values, handleChange }) => (
-        <FormStyles>
-          <Label>
+        <Form>
+          <label>
             Name
             <input
               type="text"
@@ -31,9 +25,8 @@ export const RegisterForm = () => {
               value={values.name}
               onChange={handleChange}
             />
-          </Label>
-          <br />
-          <Label>
+          </label>
+          <label>
             Email
             <input
               type="email"
@@ -42,9 +35,8 @@ export const RegisterForm = () => {
               value={values.email}
               onChange={handleChange}
             />
-          </Label>
-          <br />
-          <Label>
+          </label>
+          <label>
             Password
             <input
               type="password"
@@ -53,10 +45,9 @@ export const RegisterForm = () => {
               value={values.password}
               onChange={handleChange}
             />
-          </Label>
-          <br />
-          <SubmitBtn type="submit">Sign Up</SubmitBtn>
-        </FormStyles>
+          </label>
+          <button type="submit">Sign Up</button>
+        </Form>
       )}
     </Formik>
   );

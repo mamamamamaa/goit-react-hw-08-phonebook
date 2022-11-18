@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { PhoneBook } from '../pages/PhoneBook';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { Home } from '../pages/Home';
@@ -10,6 +9,8 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { useAuth } from '../hooks/useAuth';
 import { refreshUser } from '../redux/auth/operations';
+import { Contacts } from '../pages/Contacts';
+import { Form } from '../pages/Form';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -43,8 +44,12 @@ export const App = () => {
         <Route
           path="/contacts"
           element={
-            <PrivateRoute component={<PhoneBook />} redirectTo="/login" />
+            <PrivateRoute component={<Contacts />} redirectTo="/login" />
           }
+        />
+        <Route
+          path="/form"
+          element={<PrivateRoute component={<Form />} redirectTo="/login" />}
         />
       </Route>
     </Routes>

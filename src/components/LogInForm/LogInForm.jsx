@@ -1,9 +1,4 @@
-import { Formik } from 'formik';
-import {
-  FormStyles,
-  Label,
-  SubmitBtn,
-} from '../ContactForm/ContactForm.styled';
+import { Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 
@@ -17,8 +12,8 @@ export const LogInForm = () => {
   return (
     <Formik initialValues={{ email: '', password: '' }} onSubmit={onSubmit}>
       {({ values, handleChange }) => (
-        <FormStyles>
-          <Label>
+        <Form>
+          <label>
             Email
             <input
               type="email"
@@ -27,9 +22,8 @@ export const LogInForm = () => {
               value={values.email}
               onChange={handleChange}
             />
-          </Label>
-          <br />
-          <Label>
+          </label>
+          <label>
             Password
             <input
               type="password"
@@ -38,10 +32,9 @@ export const LogInForm = () => {
               value={values.password}
               onChange={handleChange}
             />
-          </Label>
-          <br />
-          <SubmitBtn type="submit">Log In</SubmitBtn>
-        </FormStyles>
+          </label>
+          <button type="submit">Log In</button>
+        </Form>
       )}
     </Formik>
   );
