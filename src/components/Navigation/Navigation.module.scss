@@ -1,5 +1,5 @@
 .logoLink{
-  @apply font-syne text-2xl font-bold mr-16;
+  @apply transition-all duration-700 font-syne text-2xl font-bold mr-16 hover:text-indigo-500;
 }
 
 .activeLogoLink{
@@ -7,7 +7,7 @@
 }
 
 .contactsLink{
-  @apply text-xl;
+  @apply transition-all duration-100 text-xl hover:border-b-4 border-indigo-500 ;
 }
 
 .activeContactsLink{

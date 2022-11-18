@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectIsContact } from '../../redux/contacts/selectors';
 import { addContact } from '../../redux/contacts/operations';
 import { FaRegAddressCard } from 'react-icons/fa';
-import style from './ContactForm.module.scss';
+import formStyles from '../FormStyles/FormStyles.module.scss';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -19,11 +19,11 @@ export const ContactForm = () => {
   return (
     <Formik initialValues={{ name: '', number: '' }} onSubmit={nameSubmit}>
       {({ values, handleChange }) => (
-        <Form className="flex flex-col gap-6">
-          <label className="flex flex-col">
+        <Form className={formStyles.form}>
+          <label className={formStyles.label}>
             Name
             <input
-              className={style.input}
+              className={formStyles.input}
               type="text"
               name="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -34,10 +34,10 @@ export const ContactForm = () => {
               onChange={handleChange}
             />
           </label>
-          <label>
+          <label className={formStyles.label}>
             Number
             <input
-              className={style.input}
+              className={formStyles.input}
               type="tel"
               name="number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -50,7 +50,7 @@ export const ContactForm = () => {
           </label>
           <button
             type="submit"
-            className="flex items-center justify-between w-[85px] bg-indigo-500 text-white px-4 py-1 rounded-xl"
+            className="transition-all duration-700 hover:bg-white hover:text-black flex items-center justify-center w-[50%] mx-auto bg-indigo-500 text-white text-xl px-4 py-1 rounded-xl shadow-lg"
           >
             <FaRegAddressCard />
             Add

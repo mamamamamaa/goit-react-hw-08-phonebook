@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useAuth } from '../hooks/useAuth';
 
 export const HomeTitle = styled.h1`
   text-align: center;
@@ -7,5 +8,6 @@ export const HomeTitle = styled.h1`
 `;
 
 export const Home = () => {
-  return <HomeTitle>Hello buddy</HomeTitle>;
+  const { user } = useAuth();
+  return <HomeTitle>Hello {user.name ? user.name : 'buddy'}</HomeTitle>;
 };
