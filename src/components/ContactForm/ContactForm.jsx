@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import { FormStyles, Label, SubmitBtn } from './Form.styled';
+import { FormStyles, Label, SubmitBtn } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsContact } from '../../redux/contacts/selectors';
 import { addContact } from '../../redux/contacts/operations';

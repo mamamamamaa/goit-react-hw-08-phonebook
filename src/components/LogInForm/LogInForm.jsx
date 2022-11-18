@@ -1,10 +1,16 @@
 import { Formik } from 'formik';
-import { FormStyles, Label, SubmitBtn } from '../ContactForm/Form.styled';
+import {
+  FormStyles,
+  Label,
+  SubmitBtn,
+} from '../ContactForm/ContactForm.styled';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../redux/auth/operations';
 
 export const LogInForm = () => {
-  const onSubmit = ({ email, password }, action) => {
-    console.log(email);
-    console.log(password);
+  const dispatch = useDispatch();
+  const onSubmit = (data, action) => {
+    dispatch(logIn(data));
     action.resetForm();
   };
 

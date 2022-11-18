@@ -1,4 +1,4 @@
-import { Label } from 'components/ContactForm/Form.styled';
+import { Label } from 'components/ContactForm/ContactForm.styled';
 import { FindUser, DeleteBtn, User } from './Users.styled';
 import { setFilter } from '../../redux/contacts/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
