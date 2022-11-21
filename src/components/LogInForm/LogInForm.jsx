@@ -5,9 +5,8 @@ import formStyle from '../FormStyles/FormStyles.module.scss';
 
 export const LogInForm = () => {
   const dispatch = useDispatch();
-  const onSubmit = (data, action) => {
+  const onSubmit = data => {
     dispatch(logIn(data));
-    action.resetForm();
   };
 
   return (

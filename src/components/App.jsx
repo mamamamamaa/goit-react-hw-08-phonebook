@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { lazy, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
@@ -55,6 +55,7 @@ export const App = () => {
             <PrivateRoute component={<FormPage />} redirectTo="/login" />
           }
         />
+        <Route path="*" element={<Navigate to="/" replace={<HomePage />} />} />
       </Route>
     </Routes>
   );
