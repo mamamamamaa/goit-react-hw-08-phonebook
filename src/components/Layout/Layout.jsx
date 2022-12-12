@@ -5,21 +5,23 @@ import { Toaster } from 'react-hot-toast';
 
 export const Layout = () => {
   return (
-    <div>
-      <Toaster position="top-center" reverseOrder={false} />
-      <AppBar />
-      <div className="shadow-[inset_0px_0px_8px_0px_rgba(0,0,0,0.75)]">
-        <div className="flex justify-center container mx-auto h-[90vh] py-10">
+    <div className="flex flex-col min-h-screen h-full bg-slate-50">
+      <header>
+        <Toaster position="top-center" reverseOrder={false} />
+        <AppBar />
+      </header>
+      <main className="flex-grow shadow-[inset_0px_0px_8px_0px_rgba(0,0,0,0.75)]">
+        <div className="flex justify-center container mx-auto py-10">
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>
         </div>
-      </div>
-      <div className="bg-white flex items-center justify-center h-16 gap-2">
+      </main>
+      <footer className="bg-white flex items-center justify-center h-16 gap-2">
         <span>2022</span>
         <b>PhoneBook</b>
         <span>All rights reserved</span>
-      </div>
+      </footer>
     </div>
   );
 };
