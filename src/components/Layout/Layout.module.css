@@ -1,0 +1,15 @@
+.wrapper{
+  @apply flex flex-col min-h-screen h-full bg-slate-50
+}
+
+.main{
+ @apply flex-grow shadow-[inset_0px_0px_8px_0px_rgba(0,0,0,0.75)]
+}
+
+.childContainer{
+  @apply flex justify-center container mx-auto py-10
+}
+
+.footer{
+  @apply bg-white flex items-center justify-center h-16 gap-2
+}
