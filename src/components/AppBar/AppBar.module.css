@@ -2,6 +2,6 @@
   @apply bg-white
 }
 
-.container{
+.barContainer{
   @apply container mx-auto flex items-center justify-between h-16 px-16
 }
