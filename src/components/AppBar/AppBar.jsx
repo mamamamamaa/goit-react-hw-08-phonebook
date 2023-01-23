@@ -3,11 +3,13 @@ import { AuthMenu } from '../AuthMenu/AuthMenu';
 import { useAuth } from '../../hooks/useAuth';
 import { Navigation } from '../Navigation/Navigation';
 
+import style from './AppBar.module.css';
+
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
   return (
-    <div className="bg-white">
-      <div className="container mx-auto flex items-center justify-between h-16 px-16">
+    <div className={style.bg}>
+      <div className={style.container}>
         <Navigation />
         <div>{isLoggedIn ? <UserMenu /> : <AuthMenu />}</div>
       </div>
